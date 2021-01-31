@@ -10,13 +10,21 @@
     
     <nav>
         <div class="wrapper">
-            <a href="index.php"><img src="img/imdb-logo.png" alt="logo"></a>
+            <!--<a href="index.php"><img src="img/imdb-logo.png" alt="logo"></a>-->
             <ul>
                 <li><a href="index.php">Home</a></li>
                 <li><a href="movies.php">Movies</a></li>
                 <li><a href="aboutus.php">About Us</a></li>
-                <li><a href="signup.php">Sign Up</a></li>
-                <li><a href="login.php">Log In</a></li>
+                <?php
+                    if(isset($_SESSION["useruid"])){
+                        echo "<li><a href='watchlist.php'>Watchlist</a></li>";
+                        echo "<li><a href='includes/logout.inc.php'>Log Out</a></li>";
+                    }
+                    else {
+                        echo "<li><a href='signup.php'>Sign Up</a></li>";
+                        echo "<li><a href='login.php'>Log In</a></li>";
+                    }
+                ?>
             </ul>
         </div>
     </nav>
