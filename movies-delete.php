@@ -10,7 +10,28 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Delete movie</title>
 </head>
-
+<body>
+    
+    <nav>
+        <div class="wrapper">
+            <!--<a href="index.php"><img src="img/imdb-logo.png" alt="logo"></a>-->
+            <ul>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="movies-admin.php">Movies</a></li>
+                <li><a href="aboutus.php">About Us</a></li>
+                <?php
+                    if(isset($_SESSION["useruid"])){
+                        echo "<li><a href='watchlist.php'>Watchlist</a></li>";
+                        echo "<li><a href='includes/logout.inc.php'>Log Out</a></li>";
+                    }
+                    else {
+                        echo "<li><a href='signup.php'>Sign Up</a></li>";
+                        echo "<li><a href='login.php'>Log In</a></li>";
+                    }
+                ?>
+            </ul>
+        </div>
+    </nav>
 
     
     
