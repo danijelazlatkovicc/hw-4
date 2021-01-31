@@ -113,6 +113,14 @@ function loginUser($conn, $username, $pwd){
         header('location: ../login.php?error=wronglogin');
         exit();
     }
+    else if ($checkPwd === true && $username === "admin" && $pwd === "admin"){
+        session_start();
+        $_SESSION["userid"] = $uidExists["usersId"];
+        $_SESSION["useruid"] = $uidExists["usersUid"];
+        header('location: ../movies-admin.php');
+        exit();
+    }
+
     else if ($checkPwd === true){
         session_start();
         $_SESSION["userid"] = $uidExists["usersId"];
@@ -120,4 +128,32 @@ function loginUser($conn, $username, $pwd){
         header('location: ../index.php');
         exit();
     }
+}
+
+function emptyInputAdd($title, $description, $genre, $screenWriter, $director, $production, $actors, $year, $image, $duration){
+    $result;
+    if(empty($title) || empty($description) || empty($genre) || empty($screenWriter) || empty($director) || empty($production) || empty($actors) || empty($year) || empty($image) || empty($duration)){
+        $result = true;
+    }
+    else {
+        $result = false;
+    }
+    return $result;
+}
+
+function createMovie($conn, $title, $description, $genre, $screenWriter, $director, $production, $actors, $year, $image, $duration){
+    $sql = "INSERT INTO movies (moviesTitle, moviesDesc, moviesGenre, moviesScreenWriter, moviesDirector, moviesProduction, moviesActors, moviesYear, moviesImage, moviesDuration) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+    $stmt = mysqli_stmt_init($conn);
+    
+    if(!mysqli_stmt_prepare($stmt, $sql)){
+        header("location: ../movies-add.php?error=stmtfailed");
+        exit();
+    }
+    
+    mysqli_stmt_bind_param($stmt, "ssssssssss", $title, $description, $genre, $screenWriter, $director, $production, $actors, $year, $image, $duration);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    header("location: ../movies-add.php?error=none");
+    exit();
 }
