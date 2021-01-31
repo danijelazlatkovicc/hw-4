@@ -18,10 +18,10 @@
             <ul>
                 <li><a href="index.php">Home</a></li>
                 <li><a href="movies.php">Movies</a></li>
-                <li><a href="aboutus.php">About Us</a></li>
+                <li><a href="#">About Us</a></li>
                 <?php
                     if(isset($_SESSION["useruid"])){
-                        echo "<li><a href='watchlist.php'>Watchlist</a></li>";
+                        echo "<li><a href='#'>Watchlist</a></li>";
                         echo "<li><a href='includes/logout.inc.php'>Log Out</a></li>";
                     }
                     else {
