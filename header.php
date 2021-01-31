@@ -25,6 +25,13 @@
                         echo "<li><a href='login.php'>Log In</a></li>";
                     }
                 ?>
+                
+                <li style="float:right; margin-top:12px; margin-right: 20px">
+                    <form action="search.php" method="post">
+                        <input class="search-box" type="text" name="search" placeholder="Search">
+                        <button class="search-btn" type="submit" name="submit-search">Search</button>
+                    </form>
+                </li>
             </ul>
         </div>
     </nav>
