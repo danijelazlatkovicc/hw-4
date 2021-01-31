@@ -18,6 +18,10 @@
 </head>
 <body style = "margin-top: 50px; margin-right: 15%;">
 
+<br>
+<h2 style="font-family: Lato; margin-left: 2%;">All time best movies</h2>
+<br><br>
+
 <?php
     $sql = "SELECT * FROM movies;";
     $result = mysqli_query($conn, $sql);
@@ -27,7 +31,7 @@
             //echo $row['moviesImage'];
             //echo " "; ?>
             
-            <a href="moviepage.php" style = "text-decoration: none; color: black; font-weight: bold; font-size: 20px; font-family: Lato">
+            <a href="moviepage.php" style = "margin-left: 2%; text-decoration: none; color: black; font-size: 20px; font-family: Lato">
             <img src=" <?php echo $row['moviesImage']; ?> " alt="image" width = 4%> <?php
             echo $row['moviesTitle'];
             echo " ";
@@ -35,11 +39,12 @@
             echo " ";
             echo $row['moviesGenre'];
             ?> </a>
-            <hr>
+            <hr style="margin-left: 2%;">
             <?php
         }
     }
 ?>
 
-</body>
-</html>
+<?php 
+    include_once 'footer.php';
+?>
