@@ -33,6 +33,17 @@ function invalidEmail($email){
     return $result;
 }
 
+function emptyInputDelete($title){
+    $result;
+    if(empty($title)){
+        $result = true;
+    }
+    else {
+        $result = false;
+    }
+    return $result;
+}
+
 function pwdMatch($pwd, $pwdRepeat){
     $result;
     if($pwd !== $pwdRepeat){
