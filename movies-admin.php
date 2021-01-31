@@ -40,3 +40,18 @@
         }
     }
 ?>
+        <div class='btn'>
+            <form action='movies-add.php' method = 'get'>
+                <button class='btn1' type='submit' name='add'>Add movie</button>
+            </form>
+            <form action='movies-update.php' >
+                <button class='btn2' type='submit' name='update'>Update movie</button>
+            </form>
+            <form action='movies-delete.php' >
+                <button class='btn3' type='submit' name='delete'>Delete movie</button>
+            </form>
+        </div>
+    }
+        
+</body>
+</html>
