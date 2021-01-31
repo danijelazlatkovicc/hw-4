@@ -35,7 +35,7 @@
             echo " ";
             echo $row['moviesGenre'];
             ?> </a>
-            <hr>
+            <hr style="margin-left: 2%;">
             <?php
         }
     }
