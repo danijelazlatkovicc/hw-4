@@ -36,6 +36,23 @@ a {
     padding: 13px 0;
 }
 
+.movies-form {
+    width: 270px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+}
+
+.movies-form h2 {
+    float: left;
+    font-size: 40px;
+    border-bottom: 6px solid;
+    margin-bottom: 50px;
+    padding: 13px 0;
+}
+
 .textbox {
     width: 100%;
     overflow: hidden;
@@ -103,4 +120,36 @@ ul {
   
   li a:hover {
     background-color: #111;
+  }
+
+a{
+      text-decoration: none;
+      color: black;
+  }
+
+  .btn1, .btn2, .btn3{
+    width: 100px;
+    height: 35px;
+    background: none;
+    border: 2px solid rgb(71, 70, 70);
+    color: black;
+    padding: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 12px 0;
+  }
+
+  .btn1:hover, .btn2:hover, .btn3:hover{
+    background: grey;
+    border: 2px solid grey;
+    color: white;
+    transition: 0.5s;
+  }
+
+  .btn {
+    width: 100px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
   }
