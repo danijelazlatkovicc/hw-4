@@ -33,25 +33,6 @@ function invalidEmail($email){
     return $result;
 }
 
-function deleteMovie($conn, $title){
-    $sql = "DELETE FROM movies WHERE moviesTitle = ?;";
-    $stmt = mysqli_stmt_init($conn);
-    
-    if(!mysqli_stmt_prepare($stmt, $sql)){
-        header("location: ../movies-delete.php?error=stmtfailed");
-        exit();
-    }
-    
-    mysqli_stmt_bind_param($stmt, "s", $title);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
-
-    header("location: ../movies-delete.php?error=none");
-    exit();
-}
-
-
-
 function pwdMatch($pwd, $pwdRepeat){
     $result;
     if($pwd !== $pwdRepeat){
@@ -174,5 +155,22 @@ function createMovie($conn, $title, $description, $genre, $screenWriter, $direct
     mysqli_stmt_close($stmt);
 
     header("location: ../movies-add.php?error=none");
+    exit();
+}
+
+function deleteMovie($conn, $title){
+    $sql = "DELETE FROM movies WHERE moviesTitle = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    
+    if(!mysqli_stmt_prepare($stmt, $sql)){
+        header("location: ../movies-delete.php?error=stmtfailed");
+        exit();
+    }
+    
+    mysqli_stmt_bind_param($stmt, "s", $title);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    header("location: ../movies-delete.php?error=none");
     exit();
 }
