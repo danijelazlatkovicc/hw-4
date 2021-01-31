@@ -32,9 +32,35 @@
             </ul>
         </div>
     </nav>
+    
+     <div class="wrapper">
+        
+    <section class="movies-form">
+        <h2>Delete movie</h2>
+        <div class="movies-form-form">      
+            <form class="textbox" action="includes/movies-delete.inc.php" method="post">
+                <input type="text" name="title" placeholder="Movie Title">
+                <button type="submit" name="submit">Delete Movie</button>
+            </form>
+        </div>
+        <?php
+        if(isset($_GET["error"])){
+            if($_GET["error"] == "emptyinput"){
+                echo "<p>You need to fill in all fields!</p>";
+            }
 
-    
-    
+            else if($_GET["error"] == "stmtfailed"){
+                echo "<p>Oops... Something went wrong. Try again.</p>";
+            }
+           
+            else if($_GET["error"] == "none"){
+                echo "<p>You deleted a movie succesfully!</p>";
+            }
+        }
+    ?>
+    </section>
+
+     
 <?php 
     include_once 'footer.php';
 ?>
